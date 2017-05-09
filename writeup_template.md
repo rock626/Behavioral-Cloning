@@ -72,7 +72,7 @@ My first step was to use a convolution neural network model similar to the Nivid
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
 To combat the overfitting, I modified the model so that large number of data is used for training by implementing keras generator.
-I also used data augmentation techniques which included changing brightness, adding random shadow,transforming image by horizontal/vertical shift and randomly flipping the image.
+I also used data augmentation techniques which included changing brightness,transforming image by horizontal/vertical shift and randomly flipping the image.
 
 The final step was to run the simulator to see how well the car was driving around track one. 
 
