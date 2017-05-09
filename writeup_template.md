@@ -101,6 +101,6 @@ To augment the data set, I also flipped images and angles thinking that this wou
 
 Also i added horizontal shift to simulate the car being on different positions of the road.And added vertical shifts at random to simulate the driving on slope up and down.
 
-Data set was finally split and 20% is used for validation set.I used a keras generator to have large training data, where 20000 number of samples was used for each epoch and 800 validation samples per epoch. After 3 epochs, i was satisfied that loss i minimum and both validation and training loss converged.So i used this model to run in autonomous mode on track1.Though the car speed is at 9pmh, the ride was smoother and did pretty well.
+Data set was finally split and 20% is used for validation set.I used a keras generator to have large training data, where 20000 number of samples was used for each epoch and 800 validation samples per epoch. After 3 epochs, i was satisfied that loss is minimum and both validation and training loss converged.So i used this model to run in autonomous mode on track1.Though the car speed is at 9pmh, the ride was smoother and did pretty well.
 
 
