@@ -1,11 +1,3 @@
-#**Behavioral Cloning** 
-
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
 **Behavioral Cloning Project**
 
 The goals / steps of this project are the following:
@@ -18,13 +10,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./Images/placeholder.png "Model Visualization"
+[image1]: ./Images/image1.png "Center Image"
+[image3]: ./Images/LeftImg1.png "Left recovery Image"
+[image4]: ./Images/CenterImg1.png "Center Image"
+[image5]: ./Images/RightImg1.png "Right recovery Image"
+[image6]: ./Images/Image_BeforeFlip.png "Normal Image"
+[image7]: ./Images/Image_AfterFlip.png "Flipped Image"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -70,7 +62,7 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 ####4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+I chose udacity's data as it's better what i was able to record.To simulate the recovery data, i added left and right images with a steering angle correction of 0.25.
 
 For details about how I created the training data, see the next section. 
 
@@ -80,15 +72,14 @@ For details about how I created the training data, see the next section.
 
 The overall strategy for deriving a model architecture was to ...
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+My first step was to use a convolution neural network model similar to the Nividia model as its known and tested model for self driving cars.This model is appropriate as i am trying to simulate the car to drive in autonomous mode.
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
-To combat the overfitting, I modified the model so that ...
+To combat the overfitting, I modified the model so that large number of data is used for training by implementing keras generator.
+I also used data augmentation techniques which included changing brightness, adding random shadow,transforming image by horizontal/vertical shift and randomly flipping the image.
 
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+The final step was to run the simulator to see how well the car was driving around track one. 
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
@@ -102,28 +93,24 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 ####3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+I have used udacity's training data and a sample center image is shown as 
 
-![alt text][image2]
+![alt text][image2] Image1
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+To simulate the recovery data, added left image with steering correction of 0.25 and right image with -0.25:
 
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
 
-Then I repeated this process on track two in order to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+To augment the data set, I also flipped images and angles thinking that this would simulate driving in opposite direction. For example, here is an image that has then been flipped:
 
 ![alt text][image6]
 ![alt text][image7]
 
-Etc ....
+Also i added horizontal shift to simulate the car being on different positions of the road.And added vertical shifts at random to simulate the driving on slope up and down.
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+Data set was finally split and 20% is used for validation set.I used a keras generator to have large training data, where 20000 number of samples was used for each epoch and 800 validation samples per epoch. After 3 epochs, i was satisfied that loss i minimum and both validation and training loss converged.So i used this model to run in autonomous mode on track1.Though the car speed is at 9pmh, the ride was smoother and did pretty well.
 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
