@@ -11,12 +11,9 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./Images/placeholder.png "Model Visualization"
-[image1]: ./Images/image1.png "Center Image"
-[image3]: ./Images/LeftImg1.png "Left recovery Image"
-[image4]: ./Images/CenterImg1.png "Center Image"
-[image5]: ./Images/RightImg1.png "Right recovery Image"
-[image6]: ./Images/Image_BeforeFlip.png "Normal Image"
-[image7]: ./Images/Image_AfterFlip.png "Flipped Image"
+[image2]: ./Images/image1.png "Center Image"
+[image3]: ./Images/RecoveryImg.png "Recovery Image"
+[image4]: ./Images/FlipImg.png "Flip Image"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -95,19 +92,16 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 I have used udacity's training data and a sample center image is shown as 
 
-![alt text][image2] Image1
+![alt text][image2]
 
 To simulate the recovery data, added left image with steering correction of 0.25 and right image with -0.25:
 
 ![alt text][image3]
-![alt text][image4]
-![alt text][image5]
 
 
 To augment the data set, I also flipped images and angles thinking that this would simulate driving in opposite direction. For example, here is an image that has then been flipped:
 
-![alt text][image6]
-![alt text][image7]
+![alt text][image4]
 
 Also i added horizontal shift to simulate the car being on different positions of the road.And added vertical shifts at random to simulate the driving on slope up and down.
 
