@@ -21,31 +21,31 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * writeup_report.md or writeup_report.pdf summarizing the results
 
-**1. An appropriate model architecture has been employed
+**1. An appropriate model architecture has been employed**
 
 My model consists of a convolution neural network with 5x5 filter sizes and depths between 24 and 68 (model.py lines 104-123).There are 5 concolutionals layers followed by 4 fully connected layers. 
 
 I used ELU activation to introduce nonlinearity and the data is normalized using keras lamda layer (code line 108).Also i used cropping layer (code line 106) to resize input images (both training and validation data).
 
-**2. Attempts to reduce overfitting in the model
+**2. Attempts to reduce overfitting in the model**
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 118 and line 120). 
 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 130). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-**3. Model parameter tuning
+**3. Model parameter tuning**
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 125).
 
-**4. Appropriate training data
+**4. Appropriate training data**
 
 I chose udacity's data as it's better what i was able to record.To simulate the recovery data, i added left and right images with a steering angle correction of 0.25.
 
 For details about how I created the training data, see the next section. 
 
-**Model Architecture and Training Strategy
+**Model Architecture and Training Strategy**
 
-**1. Solution Design Approach
+**1. Solution Design Approach**
 
 My first step was to use a convolution neural network model similar to the Nividia model as its known and tested model for self driving cars.This model is appropriate as i am trying to simulate the car to drive in autonomous mode.
 
@@ -58,13 +58,13 @@ The final step was to run the simulator to see how well the car was driving arou
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-**2. Final Model Architecture
+**2. Final Model Architecture**
 
 The final model architecture (model.py lines 104-123) consisted of a convolution neural network with the following layers and layer sizes.
 
 ![alt text][image1]
 
-**3. Creation of the Training Set & Training Process
+**3. Creation of the Training Set & Training Process**
 
 I have used udacity's training data and a sample center image is shown as 
 
