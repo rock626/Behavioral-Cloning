@@ -8,5 +8,16 @@ The goal is to teach a Convolutional Neural Network (CNN) to drive a car in a si
 
 I used primarily Udacity provided data (8036 images in total). Data visualization shows that data is unbalanced and steering angle is more close to zero most of the time.
 
-[./images/dataset_vis1.png]
+![alt text](./Images/dataset_vis1.png)
+
+### Data Augmentation
+
+As the training data is unbalanced, i used data augmentation techniques like adding random brightness, shadows, flipping the angle also translating the image.Also i have used all three images center,left and right to include in DataGenerator.
+
+Sample of images after data augmentation.
+![alt text](./Images/image_aug1.png)
+
+And plotting the histogram show more balanced data.
+
+![alt text](./Images/dataset_vis2.png)
 
